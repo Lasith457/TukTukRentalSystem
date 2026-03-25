@@ -88,8 +88,6 @@ Windows OS (recommended)
    ├── report/       # JasperReports Files  
    └── service/      # Business Logic   
 
-   📸 Screenshots
-   (Add screenshots here if required)
 
    ⚠️ Important Notes  
    Ensure MySQL server is running before launching the application
