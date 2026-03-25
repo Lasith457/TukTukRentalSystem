@@ -47,7 +47,7 @@ Windows OS (recommended)
 
 🔧 Setup Instructions
 1. Clone the Repository
-   git clone https://github.com/your-username/TukTukRentalSystem.git
+   git clone https://github.com/Lasith457/TukTukRentalSystem
 2. Configure Database  
    Open MySQL  
    Create database:  
