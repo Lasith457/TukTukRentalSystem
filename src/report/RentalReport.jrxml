@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jasperReport name="RentalReport" pageWidth="595" pageHeight="842"
+    columnWidth="555" leftMargin="20" rightMargin="20"
+    topMargin="20" bottomMargin="20">
+
+    <queryString>
+        <![CDATA[
+        SELECT
+            r.rental_id,
+            c.name AS customer_name,
+            t.plate_no,
+            r.start_date,
+            r.end_date,
+            r.total_amount
+        FROM rentals r
+        JOIN customers c ON r.customer_id = c.customer_id
+        JOIN tuktuks t ON r.tuktuk_id = t.tuktuk_id
+        ]]>
+    </queryString>
+
+    <!-- Fields -->
+    <field name="rental_id" class="java.lang.Integer"/>
+    <field name="customer_name" class="java.lang.String"/>
+    <field name="plate_no" class="java.lang.String"/>
+    <field name="start_date" class="java.util.Date"/>
+    <field name="end_date" class="java.util.Date"/>
+    <field name="total_amount" class="java.lang.Double"/>
+
+    <!-- Title -->
+    <title>
+        <band height="50">
+            <staticText>
+                <reportElement x="0" y="10" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[TukTuk Rental Report]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- Header -->
+    <columnHeader>
+        <band height="25">
+            <staticText><reportElement x="0" y="0" width="60" height="25"/><text><![CDATA[ID]]></text></staticText>
+            <staticText><reportElement x="60" y="0" width="120" height="25"/><text><![CDATA[Customer]]></text></staticText>
+            <staticText><reportElement x="180" y="0" width="100" height="25"/><text><![CDATA[TukTuk]]></text></staticText>
+            <staticText><reportElement x="280" y="0" width="80" height="25"/><text><![CDATA[Start]]></text></staticText>
+            <staticText><reportElement x="360" y="0" width="80" height="25"/><text><![CDATA[End]]></text></staticText>
+            <staticText><reportElement x="440" y="0" width="115" height="25"/><text><![CDATA[Total]]></text></staticText>
+        </band>
+    </columnHeader>
+
+    <!-- Data -->
+    <detail>
+        <band height="25">
+            <textField><reportElement x="0" y="0" width="60" height="25"/><textFieldExpression><![CDATA[$F{rental_id}]]></textFieldExpression></textField>
+            <textField><reportElement x="60" y="0" width="120" height="25"/><textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression></textField>
+            <textField><reportElement x="180" y="0" width="100" height="25"/><textFieldExpression><![CDATA[$F{plate_no}]]></textFieldExpression></textField>
+            <textField><reportElement x="280" y="0" width="80" height="25"/><textFieldExpression><![CDATA[$F{start_date}]]></textFieldExpression></textField>
+            <textField><reportElement x="360" y="0" width="80" height="25"/><textFieldExpression><![CDATA[$F{end_date}]]></textFieldExpression></textField>
+            <textField><reportElement x="440" y="0" width="115" height="25"/><textFieldExpression><![CDATA[$F{total_amount}]]></textFieldExpression></textField>
+        </band>
+    </detail>
+
+</jasperReport>
